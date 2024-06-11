@@ -1,0 +1,884 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azayd IT Consultant Service</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet"> 
+    <style>
+            body {
+    margin: 0;
+    background-color: black;
+    /* General Styles */
+
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+        'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+nav {
+    background-color: purple;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ddd;
+}
+
+.navbar-logo {
+    border-radius: 40%;
+    margin-left: 15px;
+}
+
+/* Media Queries for Scalability */
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 0.7em;
+    }
+}
+      
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+    .basic_service {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%; /* Adjust as needed */
+        margin: 10px 0;
+    }
+
+    .img {
+        margin: 0 auto; 
+    }
+
+    h5 {
+        font-size: 0.9em; 
+    }
+
+    ul {
+        font-size: 0.9em; 
+    }
+
+    p {
+        font-size: 0.9em; 
+    }
+}
+
+    @media (max-width: 576px) {
+        h1 {
+            font-size: 2em;
+        }
+        h2 {
+            font-size: 1.2em;
+        }
+        .header2 h5 {
+            font-size: 0.8em;
+        }
+    }
+
+
+.basic_service {
+    height: auto;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.partners {
+    height: auto;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.news {
+    height: auto;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 1rem;
+    padding: 20px;
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 0;
+}
+
+.Services {
+    height: auto;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    position: relative;
+    padding: 20px;
+}
+
+.card {
+    width: 90%;
+    max-width: 350px;
+    height: auto;
+    border: 1px solid white;
+    font-size: larger;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: cover;
+    opacity: 90%;
+}
+
+.img_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 1.0);
+    font-weight: bolder;
+    font-size: 1.1rem;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.50s;
+    transform: translateY(20px);
+    transition: transform 0.50s;
+}
+
+.img_overlay:hover {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.img_overlay--blur {
+    backdrop-filter: blur(5px);
+}
+
+.part {
+    background-color: aliceblue;
+    height: auto;
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 50px;
+    flex-wrap: wrap;
+}
+
+.content {
+    height: auto;
+    width: 90%;
+    max-width: 800px;
+    color: white;
+    font-size: 1rem;
+    border: 1px solid white;
+    padding: 25px;
+}
+
+.content:hover {
+    box-shadow: 0 0 50px var(--clr);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+a:before,
+a:after {
+    content: "";
+    position: absolute;
+    height: 0.1em;
+    width: 0;
+    background-color: red;
+    transition: 0.5s;
+}
+
+a:after {
+    left: 0;
+    bottom: -10px;
+}
+
+a:before {
+    right: 0;
+    bottom: -10px;
+}
+
+a:hover {
+    color: white;
+    font-size: 1.2em;
+    transition: 0.1s;
+}
+
+a:hover:after,
+a:hover:before {
+    width: 100%;
+}
+
+.service {
+    background-color: purple;
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    padding: 15px;
+    color: aliceblue;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: cover;
+    transition: translateY(20px);
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    transition: all 2s ease;
+}
+
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.blogs {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    display: inline-block;
+    padding: 15px;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+.footer {
+    height: auto;
+    width: 100%;
+    background-color: black;
+    border-top: 1px solid white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.part1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.part_a {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.part_b {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+/* Media Queries */
+
+
+            margin: 0;
+            background-color: black;
+        }
+
+
+        body{
+            margin: 0;
+            background-color: black;
+        }
+        nav{
+            width: 100%;
+            height: 10vh;
+            background-color:purple;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+             'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 
+             'Open Sans', 'Helvetica Neue', sans-serif;
+             position: relative;
+        }
+        .homepage{
+            height: 90vh;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+         }
+         .header{
+            color: white;
+            display: flex;
+            gap: 25px;
+            flex-direction: column;
+            width: 60%;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            
+         }
+         h1{
+            font-size:4em;
+         }
+         .header2{
+            color: white;  
+            width: 40%;
+            border-top:5px solid purple ;
+         }
+         .basic_service{
+            height: 70vh;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: space-around; 
+            flex-wrap: wrap;
+
+         }
+         .partners{
+            height: 125vh;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            flex-direction: column; 
+            gap: 50px;
+            
+         }
+         .news{
+            height: 100vh;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 20px;
+            font-size: 1.1rem;
+         }
+         .wrapper::-webkit-scrollbar{
+            width: 0;
+         }
+         .Services{
+            height: 200vh;
+            width: 100%;
+            background-color: yellow;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap; 
+            gap: 90px;
+            position: relative;
+         }
+
+         .card{
+            width: 30%;
+            height: 50vh;
+            border: 1px solid white;
+            font-size: larger;
+            position: relative;
+            overflow: hidden; 
+         }
+        .img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            object-position: cover;
+            opacity: 90%;
+        }
+        .img_overlay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: white;
+            background: rgba(0,0,0,1.0);
+            font-weight: bolder;
+            font-size: 1.1rem;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.50s;
+            transform: translateY(20px);
+            transition: transform 0.50s;
+        }
+        .img_overlay:hover{
+            opacity: 1;
+            transform: translateY(0);
+            
+        }
+         .img_overlay--blur{
+            backdrop-filter: blur(5px);
+         }
+         .part{
+            background-color:aliceblue;
+            height: 15vh;
+            width: 65%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 50px;
+         }
+         .content{
+            height: 50vh;
+            width: 70%;
+            color: white;
+            font-size: 1trem;
+            /* border-radius: 50px; */
+            border: 1px solid white;
+            padding: 25px;
+         }
+         .content:hover{
+            /* background-color: var(--clr); */
+            box-shadow: 0 0 50px var(--clr);
+         }
+         a{
+            text-decoration: none;
+            color: white;
+            position: relative;
+         }
+         a:before,a:after{
+            content: "";
+            position: absolute;
+            height: 0.1em;
+            width: 0;
+            background-color: red;
+            transition: 0.5s;
+
+         }
+         a:after{
+            left: 0;
+            bottom: -10px;
+         }
+         a:before{
+            right: 0;
+            bottom: -10px;
+         }
+         a:hover{
+            color:white;
+            font-size: 1.2em;
+            transition: 0.1s;
+         }
+         a:hover:after,a:hover:before{
+            width: 100%;
+            
+         }
+         .text-wrapper{
+            background-color: black;
+            height: 5vh;
+            width: 100%;
+            text-align: center;
+         }
+         .service{
+            background-color: purple;
+            width: 70%;
+            height: 55vh;
+            padding: 15px;
+            color: aliceblue;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            object-position: cover;
+            transition: traslateY(20px);
+         }
+         .reveal{
+            position: relative;
+            transform: translateY(150px);
+            transition: all 2s ease;
+         }
+         .reveal.active{
+            transform: translateY(0px);
+            opacity: 1;
+         }
+         .blogs{
+            width: 30%;
+            height: 50vh;
+            display: inline-block;
+            padding: 15px;
+            border: 2px solid white;
+            border-radius: 10px;
+            margin-right: 5px;
+         }
+        /* .text-wrapper{
+            display: flex;
+            justify-content: flex-start;
+            overflow: hidden;
+            width: 100%;
+            align-items: center;
+        }
+        {
+            font-size: 3rem;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke-width: 0.1px;
+            -webkit-text-stroke-color:white;
+           
+            white-space: nowrap;
+            padding: 0 6rem;
+            letter-spacing: 1px;
+            animation: move-rtl 6000ms linear infinite;
+
+        }
+         @keyframes move-rtl {
+            0%{
+                transform : translateX(0%)
+            }
+            100%{
+                transform : translateX(-100%)
+            } 
+         } */
+         .footer{
+            height: 75vh;
+            width: 100%;
+            background-color: black;
+            border-top: 1px solid white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: white;
+         }
+         .part1{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+         }
+         .part_a{
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 15px;
+         }
+         .part_b{
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 15px;
+         }
+
+    </style>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @media (max-width: 992px) {
+            .navbar-brand span {
+                display: none;
+            }
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-custom {
+            background-color: purple;
+        }
+        @media (max-width: 992px) {
+            .navbar-brand span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body bgcolor="black">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="{% static './img/logo.jpg' %}" alt="" class="navbar-logo" height="50px" width="50px">
+                <span class="ms-2">Azayd IT Consultant Service</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact/contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Blogs/News+</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="homepage"  id="home" >
+        <div class="header">
+            <h1 style="text-align:center;">Welcome to Azayd IT Consultant Service</h1>
+            <h2 style="text-align: center;">Empowering Your Business with Innovative IT Solutions</h2>
+        </div>
+        <div class="header2">
+            <h5>At Azayd IT Consultant, we are dedicated to transforming your business through expert IT consultancy. Our mission is to provide tailored technology solutions that drive efficiency, enhance security, and foster growth.</h5>
+            <a>What we do!</a>
+        </div>
+    </div>
+    
+    <div class="basic_service">
+        <div class="card strat">
+        <img class="img" src="{% static './img/strat.jpg' %}">
+        <div class="img_overlay img_overlay--blur">
+            <p>
+                <h5>Strategic IT Consulting</h5>
+            <ul>
+                <li>IT Strategy Development: Align your IT initiatives with your business goals for maximum impact.</li>
+                <li>Technology Roadmaps: Plan and implement future-ready technologies to stay ahead of the competition.</li>
+                
+            </ul>
+        </p> 
+        </div>
+        </div>
+
+        <div class="card cyber">
+        <img class="img" src="{% static './img/cyber.jpg'%}">
+        <div class="img_overlay img_overlay--blur">
+            <p>
+                <h5>Cybersecurity Services</h5>
+            <ul>
+                <li>Security Assessments: Identify vulnerabilities and secure your digital assets.</li>
+                <li>Compliance and Risk Management: Ensure adherence to industry regulations and manage IT risks effectively.</li>
+                
+            </ul>
+        </p> 
+        </div>
+        </div>
+
+        <div class="card cloud">
+        <img class="img" src="{% static './img/cloud.jpg'%}">
+        <div class="img_overlay img_overlay--blur">
+            <p>
+                <h5>Cloud Solutions</h5>
+            <ul>
+                <li>Cloud Strategy and Migration: Seamlessly transition your infrastructure to the cloud.</li>
+                <li>Cloud Management Services: Optimize your cloud environment for performance and cost-efficiency.</li>
+                
+            </ul>
+        </p> 
+        </div>
+        </div>
+
+        <div class="card infra">
+        
+        <img class="img" src="{% static './img/infra.jpg'%}">
+        <div class="img_overlay img_overlay--blur">
+            <p>
+                <h5>IT Infrastructure Management</h5>
+            <ul>
+                <li>Network Design and Implementation: Build robust and scalable network infrastructures</li>
+                <li>Server and Storage Solutions: Manage and maintain your critical IT assets.</li>
+                
+            </ul>
+        </p> 
+        </div>
+        </div>
+    </div>
+
+    <div class="partners about_us">
+        <h1>Our Partners</h1>
+        <div class="part">
+            <img src="{% static './img/partners/nike.png'%}" alt="" height="100px" width="105px">
+            <img src="{% static './img/partners/animal.png'%}" alt="" height="100px" width="105px">
+            <img src="{% static './img/partners/sign.png'%}" alt="" height="100px" width="105px">
+            <img src="{% static './img/partners/cars.png'%}" alt="" height="100px" width="105px">
+            <img src="{% static './img/partners/party.png'%}" alt="" height="100px" width="105px">
+        </div>
+        <h1 style="color: white;" id="about">About Us</h1>
+        <div class="content" style="--clr:#8A3324" >
+            Welcome to Azayd IT Consultant, where technology meets innovation. We are a leading IT consultancy firm dedicated to empowering businesses with cutting-edge technology solutions. Our mission is to provide expert guidance, strategic insights, and tailored IT services that drive growth, enhance security, and optimize operations.
+            At Azayd IT Consultant, we believe in the power of technology to transform businesses. Our team of seasoned IT consultants is committed to delivering innovative solutions that not only meet but exceed our clients' expectations. With a focus on strategic planning, cybersecurity, cloud computing, and more, we are your trusted partner in navigating the complex world of IT.
+            <h3 align="center">Our Story</h3>
+            Founded in 2024, Azayd IT Consultant was established with a vision to bridge the gap between technology and business needs. Over the years, we have grown into a trusted partner for organizations across various industries, delivering comprehensive IT consulting services that align with our clients' goals.
+        </div>
+        <h1 style="color: purple;">Services</h1>
+    </div>
+
+    <div class="Services " id="Services">
+        
+        <div class="service one">
+            <div class="div_overlay reveal">
+            <h5>IT Strategy Development</h5>
+            Develop a robust IT strategy that aligns with your business objectives and ensures long-term success. Our experts work with you to identify key goals and create a roadmap for achieving them through technology.
+            <br>
+            <h5>Technology Roadmaps</h5>
+            Plan and implement future-ready technologies to stay competitive in an ever-evolving market. We help you navigate the complexities of digital transformation with clear, actionable roadmaps.
+            <br>
+            <h5>Digital Transformation</h5>
+            Transform your business operations with cutting-edge digital solutions. We guide you through every step of your digital transformation journey, from planning to implementation.
+            </div>
+            
+        </div>
+        <div class="service two">
+            <div class="div_overlay reveal">
+                <h5>Security Assessments</h5>
+                Identify vulnerabilities in your IT infrastructure and implement measures to protect your digital assets. Our thorough security assessments provide a detailed analysis of your security posture.
+                <br>
+                <h5>Compliance and Risk Management</h5>
+                Ensure your business meets industry regulations and standards. We help you manage IT risks and maintain compliance with evolving cybersecurity laws.
+                <br>
+                <h5>Incident Response</h5>
+                Respond swiftly and effectively to security incidents.Ensure your business meets industry regulations and standards. Our incident response services minimize damage and help you recover quickly from cyber attacks.
+                </div>
+        </div>
+        <div class="service three">
+            <div class="div_overlay reveal">
+                <h5>Cloud Strategy and Migration</h5>
+                Seamlessly transition your IT infrastructure to the cloud. We develop and execute a comprehensive cloud migration strategy tailored to your business needs.
+                <br>
+                <h5>Cloud Management Services</h5>
+                Optimize your cloud environment for performance, security, and cost-efficiency. Our cloud management services ensure your cloud resources are always aligned with your business goals.
+                <br>
+                <h5>Hybrid Cloud Solutions</h5>
+                Integrate cloud and on-premise systems to create a flexible, scalable IT environment. Our hybrid cloud solutions provide the best of both worlds, ensuring seamless operation across platforms.
+                </div>
+        </div>
+        <div class="service four">
+            <div class="div_overlay reveal">
+                <h5>Network Design and Implementation</h5>
+                Build a robust and scalable network infrastructure that supports your business operations. We design and implement networks tailored to your specific requirements.
+                <br>
+                <h5>Server and Storage Solutions</h5>
+                Manage and maintain your critical IT assets with our comprehensive server and storage solutions. We ensure your data is secure, accessible, and efficiently managed.
+                <br>
+                <h5>IT Support Services</h5>
+                Provide round-the-clock support to ensure business continuity. Our dedicated support team is always available to resolve any IT issues quickly and effectively.
+                </div>
+        </div>
+        <div class="service four">
+            <div class="div_overlay reveal">
+                <h5>Cloud Consulting</h5>
+                A Cloud Readiness Assessment is a critical service that helps organizations evaluate their current IT infrastructure, applications, and processes to determine their preparedness for transitioning to cloud computing. 
+                <br>
+                <h5>Server and Storage Solutions</h5>
+                Manage and maintain your critical IT assets with our comprehensive server and storage solutions. We ensure your data is secure, accessible, and efficiently managed.
+                <br>
+                <h5>Hybrid Cloud Solutions</h5>
+                Integrate cloud and on-premise systems to create a flexible, scalable IT environment. Our hybrid cloud solutions provide the best of both worlds, ensuring seamless operation across platforms.
+                </div>
+        </div>
+        <div class="service four">
+            <div class="div_overlay reveal">
+                <h5>Enterprise Systems Consulting</h5>
+                Implementing and supporting an ERP (Enterprise Resource Planning) system is a comprehensive service that involves several key stages and ongoing support activities. Here’s a detailed breakdown of what ERP system implementation and support
+                <br>
+                <h5>Compliance and Regulatory Services</h5>
+                Compliance and Regulatory Services ensure that organizations adhere to legal, industry, and internal standards. These services help mitigate risks and avoid penalties by maintaining adherence to various regulations. <br>
+                <h5>IT Support Services</h5>
+                Provide round-the-clock support to ensure business continuity. Our dedicated support team is always available to resolve any IT issues quickly and effectively.
+                </div>
+        </div>
+    </div>
+    <div class="text-wrapper">
+        <h2 style="color: white;" id="blog ">Azayad News & Blogs</h2>
+    </div>
+    <div class="news">
+        {% for dest in dests %}
+        <div class="blogs">
+            {{dest.desc}}
+        </div>
+        {% endfor %}
+         
+    </div>
+
+    <div class="footer">
+        <div class="part1">
+            <div class="part_a">
+            <a href="#home">Home</a>
+            <a href="#about">About us</a>
+            <a href="#Services">Services</a>
+            <a href="/contact/contact">Contact Us</a>
+            <a href="#blog">Blog/News+</a>
+            <h6>© 2024 Azayd. All Rights Reserved </h6>
+            </div>
+            <div class="part_b">
+            <a>Location</a>
+            <a>SiteMap</a>
+            <a>Privacy Statement</a>
+            <a>Terms & condition</a>
+                </div>
+        </div>
+        <div class="part2">
+            Connet With Us.
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.addEventListener('scroll',reveal);
+        function reveal(){
+            var reveals = document.querySelectorAll('.reveal');
+            for(var i =0;i<reveals.length;i++){
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+
+                if(revealtop < windowheight - revealpoint){
+                    reveals[i].classList.add('active'); 
+                }
+                else{
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
